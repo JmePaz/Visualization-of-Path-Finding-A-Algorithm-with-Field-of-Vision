@@ -42,7 +42,6 @@ public class AIFollower : MonoBehaviour
 
         //set new Path points
         GenerateNewPath();
-        Debug.Log("Count Path: "+pathPoints.Count);
 
         //look at the next point
         LookAtPath();
@@ -57,14 +56,14 @@ public class AIFollower : MonoBehaviour
     void Update(){
         fieldView.CastFieldView();
         if(fieldView.InFieldView){
-            Debug.Log("Field of View Activated");
+            //Debug.Log("Field of View Activated");
             fieldView.ChangeMeshColorMaterial(Color.red);
             FollowTargetPlayer(fieldView.targetPos);
             currentIndex = pathPoints.Count;
         }
         else{
             // move ai
-            Debug.Log("Ai Activated");
+            //Debug.Log("Ai Activated");
             if(!fieldView.InSphereView){
                 fieldView.ChangeMeshColorMaterial(Color.yellow);
             }
@@ -82,7 +81,7 @@ public class AIFollower : MonoBehaviour
         // get new points to follow
         Vector3 currentPosition = this.transform.position;
 
-
+        //generate new path
         bool insideRect = InBound(pathPoints[pathPoints.Count - 1], targetToFollow.transform.position, layoutMap.GetScaleBox()*10f, true);
         if((!insideRect&&IsInOppositeDirection(currentPosition, targetToFollow.transform.position, 90f))){
             
@@ -107,24 +106,26 @@ public class AIFollower : MonoBehaviour
         UpdatePathPoints(currentPosition);
      
         //move position
-        Vector3 directionToTheTarget = (pathPoints[currentIndex]-currentPosition).normalized - myTransform.forward;
-        if((int)directionToTheTarget.x == 0 && (int)directionToTheTarget.z == 0){
-             Move(myTransform.TransformDirection(Vector3.forward));
-        }
-        else{
-            //rotate if out of direction
-            LookAtPath();
+        if(currentIndex<pathPoints.Count){
+            Vector3 directionToTheTarget = (pathPoints[currentIndex]-currentPosition).normalized  - myTransform.forward;
+            if((int)directionToTheTarget.x == 0 && (int) directionToTheTarget.z == 0){
+                Move(myTransform.TransformDirection(Vector3.forward));
+            }
+            else{
+                //rotate if out of direction
+                LookAtPath();
+            }
         }
        
     }
 
-     private void UpdatePathPoints(Vector3 currentPosition){
+    private void UpdatePathPoints(Vector3 currentPosition){
         // if it does not have any 
         if(currentIndex>=pathPoints.Count){
             GenerateNewPath();
         }
         // if it founds the new point
-        else if(InBound(pathPoints[currentIndex],currentPosition, layoutMap.GetScaleBox()/2f)){
+        else if(InBound(pathPoints[currentIndex],currentPosition, layoutMap.GetScaleBox()/2.5f, true)){
             //change new point
             currentIndex++;
             LookAtPath();
@@ -152,11 +153,8 @@ public class AIFollower : MonoBehaviour
         myTransform.rotation = Quaternion.Slerp(currentRot, targetRot, rotationSpeed);
     }
     private void FindTarget(Transform playerTransform, Vector3 currentPosition){
-
-         Debug.Log("Fixing points");
          Vector2Int startGridPos = layoutMap.WorldPosToGridPos(myTransform.position);
          Vector2Int endGridPos = layoutMap.WorldPosToGridPos(targetToFollow.transform.position);
-         Debug.Log("Debug: "+endGridPos);
          pathPoints = pathFinder.FindPath(layoutMap.GetGridMapLayout(), startGridPos, endGridPos);
          currentIndex = 1;
          LookAtPath();
@@ -209,10 +207,10 @@ public class AIFollower : MonoBehaviour
             Vector3 C = new Vector3(point.x-margin, point.y, point.z-margin);
             Vector3 D = new Vector3(point.x+margin, point.y, point.z-margin);
             //cast a box
-            Debug.DrawLine(A,B, Color.green);
-            Debug.DrawLine(B,D,Color.green);
-            Debug.DrawLine(D,C,Color.green);
-            Debug.DrawLine(C,A,Color.green);
+            Debug.DrawLine(A,B, Color.black);
+            Debug.DrawLine(B,D,Color.black);
+            Debug.DrawLine(D,C,Color.black);
+            Debug.DrawLine(C,A,Color.black);
         }
         if(point.x+margin>=position.x && position.x>=point.x-margin){
             return (point.z+margin>=position.z && point.z-margin<=position.z);
@@ -227,13 +225,13 @@ public class AIFollower : MonoBehaviour
             Vector3 C = new Vector3(point.x-marginVector.x, point.y, point.z-marginVector.z);
             Vector3 D = new Vector3(point.x+marginVector.x, point.y, point.z-marginVector.z);
             //cast a box
-            Debug.DrawLine(A,B, Color.yellow);
-            Debug.DrawLine(B,D,Color.yellow);
-            Debug.DrawLine(D,C,Color.yellow);
-            Debug.DrawLine(C,A,Color.yellow);
+            Debug.DrawLine(A,B, Color.red);
+            Debug.DrawLine(B,D,Color.red);
+            Debug.DrawLine(D,C,Color.red);
+            Debug.DrawLine(C,A,Color.red);
         }
-        if(point.x+marginVector.x>=position.x && position.x>=point.x-marginVector.x){
-            return (point.z+marginVector.z>=position.z && point.z-marginVector.z<=position.z);
+        if(point.x-marginVector.x<=position.x && position.x<=point.x+marginVector.x){
+            return (point.z-marginVector.z<=position.z && position.z<=point.z+marginVector.z);
         }
         return false;
     }
@@ -311,7 +309,6 @@ public class AIFollower : MonoBehaviour
             for(int i=currentIndex; i<pathPoints.Count; i++){
                 Vector3 point = pathPoints[i];
                 point.y = myTransform.position.y;
-                Debug.Log("On draw gizmos point: "+point);
                 Gizmos.DrawSphere(point, 15f);
             }
         }

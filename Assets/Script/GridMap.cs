@@ -24,7 +24,7 @@ public class GridMap : MonoBehaviour
     void Awake() {
         myTransform = this.transform;
         size = myTransform.localScale;
-        scaleBox = new Vector3(size.x/numOfColumns, 2, size.z/numOfRows);
+        scaleBox = new Vector3(size.x/numOfColumns, 0,size.z/numOfRows);
 
     }
 
@@ -106,7 +106,7 @@ public class GridMap : MonoBehaviour
     }
 
     void OnDrawGizmos() {
-        if(this!=null){
+        if(this!=null && myTransform!=null) {
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(myTransform.position,new Vector3(size.x,1,size.z));
            

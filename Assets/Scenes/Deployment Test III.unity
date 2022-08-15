@@ -2290,12 +2290,12 @@ PrefabInstance:
     - target: {fileID: 9167675728373333473, guid: 522d267727b79d84b9f138407ee02b70,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.205498
+      value: -12.2055
       objectReference: {fileID: 0}
     - target: {fileID: 9167675728373333473, guid: 522d267727b79d84b9f138407ee02b70,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 402
+      value: 344
       objectReference: {fileID: 0}
     - target: {fileID: 9167675728373333473, guid: 522d267727b79d84b9f138407ee02b70,
         type: 3}
@@ -2657,7 +2657,7 @@ GameObject:
   - component: {fileID: 494099325}
   - component: {fileID: 494099324}
   - component: {fileID: 494099323}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5140,7 +5140,7 @@ GameObject:
   - component: {fileID: 916707155}
   - component: {fileID: 916707154}
   - component: {fileID: 916707153}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6618,13 +6618,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188139953}
-  m_LocalRotation: {x: -0.7104336, y: -0, z: -0, w: -0.70376426}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: -0.7071068}
   m_LocalPosition: {x: -13, y: 960, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 9.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -269.46002, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -270, y: 0, z: 0}
 --- !u!1 &1191913491
 GameObject:
   m_ObjectHideFlags: 0
@@ -7727,7 +7727,7 @@ PrefabInstance:
     - target: {fileID: -4504355034532906895, guid: ecb85fb682db83c47945ef0e534e1047,
         type: 3}
       propertyPath: speed
-      value: 57
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb85fb682db83c47945ef0e534e1047, type: 3}
@@ -8749,7 +8749,7 @@ GameObject:
   - component: {fileID: 1597776753}
   - component: {fileID: 1597776752}
   - component: {fileID: 1597776751}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9302,8 +9302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98345f8da0031d84d98b0f55508b5dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfRows: 60
-  numOfColumns: 49
+  numOfRows: 65
+  numOfColumns: 59
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 2048
@@ -10953,7 +10953,7 @@ PrefabInstance:
     - target: {fileID: 5049275152078481656, guid: d9543c9dcb1964a4a93f4fcfab27dc1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 286
+      value: 229
       objectReference: {fileID: 0}
     - target: {fileID: 5049275152078481656, guid: d9543c9dcb1964a4a93f4fcfab27dc1f,
         type: 3}
@@ -11023,7 +11023,7 @@ PrefabInstance:
     - target: {fileID: 5052100682767828110, guid: d9543c9dcb1964a4a93f4fcfab27dc1f,
         type: 3}
       propertyPath: speed
-      value: 40
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3260330189314636015, guid: d9543c9dcb1964a4a93f4fcfab27dc1f,
         type: 3}
@@ -11038,17 +11038,17 @@ PrefabInstance:
     - target: {fileID: 3260330189314636015, guid: d9543c9dcb1964a4a93f4fcfab27dc1f,
         type: 3}
       propertyPath: angle
-      value: 65.5
+      value: 104.4
       objectReference: {fileID: 0}
     - target: {fileID: 3260330189314636015, guid: d9543c9dcb1964a4a93f4fcfab27dc1f,
         type: 3}
       propertyPath: radius
-      value: 112.1
+      value: 146.7
       objectReference: {fileID: 0}
     - target: {fileID: 3260330189314636015, guid: d9543c9dcb1964a4a93f4fcfab27dc1f,
         type: 3}
       propertyPath: meshResolution
-      value: 0.622
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 5049275152078481662, guid: d9543c9dcb1964a4a93f4fcfab27dc1f,
         type: 3}
@@ -11345,7 +11345,7 @@ GameObject:
   - component: {fileID: 1916152000}
   - component: {fileID: 1916151999}
   - component: {fileID: 1916151998}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

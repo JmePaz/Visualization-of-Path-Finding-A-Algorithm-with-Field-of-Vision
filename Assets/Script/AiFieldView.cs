@@ -63,6 +63,7 @@ public class AiFieldView : MonoBehaviour
                     //found the player
                    targetPos = objectInField.transform.position;
                 }      
+               
             }
         }
         

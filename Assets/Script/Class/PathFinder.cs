@@ -243,7 +243,6 @@ class PathFinder{
         while(currNode != default(Node)){
             //get the grid node
             Vector2Int position = currNode.GetPosition();
-            Debug.Log("Path to take: "+position);
             GridNode tile = matrix[position.y, position.x];
 
             //store in pointsPath
