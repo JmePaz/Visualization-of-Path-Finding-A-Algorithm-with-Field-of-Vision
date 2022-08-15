@@ -1,4 +1,4 @@
-# Visualization-of-Path-Finding-A-Algorithm-with-Field-of-Vision [Educational Purposes only]
+# Visualization-of-Path-Finding-Astar-Algorithm-with-Field-of-Vision [Educational Purposes only]
 - Developed a Smart Enemy ( Visualization of Path Finding A* Algorithm  with Field of Vision in 3d Game)
   - Can follow target object position (even a moving target).
 - This has two mechanism to follow the target object in a game. Field of view and Path finding Algo.
